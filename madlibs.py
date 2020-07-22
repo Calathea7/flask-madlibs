@@ -28,6 +28,19 @@ def say_hello():
 
     return render_template("hello.html")
 
+@app.route('/game')
+def show_madlib_form():
+
+    want_to_play = request.args.get("wanna_play")
+
+    if want_to_play == "no":
+
+        return render_template("goodbye.html")
+
+    elif want_to_play == "yes":
+
+        return render_template("game.html")
+
 
 @app.route('/greet')
 def greet_person():
